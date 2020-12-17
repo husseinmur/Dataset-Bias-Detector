@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Final Report</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                   
+                </nav>
+                <!-- End of Topbar -->
+
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Dataset Bias Detector</h1>
+                    
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Donut Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Race</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4">
+                                        <canvas id="myPieChart1"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> White
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Black
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Asian
+                                        </span>
+
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info indian"></i> Indian
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Donut Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Gender</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4">
+                                        <canvas id="myPieChart2"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> Male
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Female
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Donut Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Age</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4">
+                                        <canvas id="myPieChart3"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> 0 - 18
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> 19 - 60
+                                        </span>
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> 60+
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkbox card -->
+                    <div class="row">
+                        <div class="col-lg-12 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Choose different combinations for comparison</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form class="checkbox-group"> 
+                                        <div class="form-row checkbox-row">
+                                        
+                                            <div class="col-md-2 col-lg-2">
+                                                <label>Race</label>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="race-0" name="first_race">
+                                                    <label class="form-check-label" for="materialUnchecked">White</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="race-1" name="first_race">
+                                                    <label class="form-check-label" for="materialUnchecked">Black</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="race-2" name="first_race">
+                                                    <label class="form-check-label" for="materialUnchecked">Asian</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="race-3" name="first_race">
+                                                    <label class="form-check-label" for="materialUnchecked">Indian</label>
+                                                </div>
+
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="race-none" name="first_race">
+                                                    <label class="form-check-label" for="materialUnchecked">None</label>
+                                                </div>
+
+                                            </div>
+                                            
+                                            <div class="col-md-2 col-lg-2">
+                                                <label for="">Gender</label>
+                                                
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="gender-0" name="first_race">
+                                                    <label class="form-check-label" for="materialUnchecked">Male</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="gender-1" name="first_race">
+                                                    <label class="form-check-label" for="materialUnchecked">Female</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="gender-none" name="first_race">
+                                                    <label class="form-check-label" for="materialUnchecked">None</label>
+                                                </div>
+                                            </div>
+                                                
+                                            <div class="col-md-2 col-lg-2">
+                                            <label for="">Age</label>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="age-0" name="first_race">
+                                                <label class="form-check-label" for="materialUnchecked">0 to 18</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="age-1" name="first_race">
+                                                <label class="form-check-label" for="materialUnchecked">18 to 25</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="age-2" name="first_race">
+                                                <label class="form-check-label" for="materialUnchecked">25 to 45</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="age-3" name="first_race">
+                                                <label class="form-check-label" for="materialUnchecked">45 to 115</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="age-none" name="first_race">
+                                                <label class="form-check-label" for="materialUnchecked">None</label>
+                                            </div>
+                                            </div>
+
+
+                                            <div class="col-md-2 col-lg-2">
+                                                <label>Race</label>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="race-0" name="second_race">
+                                                    <label class="form-check-label" for="materialUnchecked">White</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="race-1" name="second_race">
+                                                    <label class="form-check-label" for="materialUnchecked">Black</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="race-2" name="second_race">
+                                                    <label class="form-check-label" for="materialUnchecked">Asian</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="race-3" name="second_race">
+                                                    <label class="form-check-label" for="materialUnchecked">Indian</label>
+                                                </div>
+
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="race-none" name="second_race">
+                                                    <label class="form-check-label" for="materialUnchecked">None</label>
+                                                </div>
+
+                                            </div>
+                                            
+                                            <div class="col-md-2 col-lg-2">
+                                                <label for="">Gender</label>
+                                                
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="gender-0" name="second_race">
+                                                    <label class="form-check-label" for="materialUnchecked">Male</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="gender-1" name="second_race">
+                                                    <label class="form-check-label" for="materialUnchecked">Female</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" value="gender-none" name="second_race">
+                                                    <label class="form-check-label" for="materialUnchecked">None</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-2 col-lg-2">
+                                            <label for="">Age</label>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="age-0" name="second_race" >
+                                                <label class="form-check-label" for="materialUnchecked">0 to 18</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="age-1" name="second_race" >
+                                                <label class="form-check-label" for="materialUnchecked">18 to 25</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="age-2" name="second_race" >
+                                                <label class="form-check-label" for="materialUnchecked">25 to 45</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="age-3" name="second_race" >
+                                                <label class="form-check-label" for="materialUnchecked">45 to 115</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" value="age-none" name="second_race" >
+                                                <label class="form-check-label" for="materialUnchecked">None</label>
+                                            </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </form> 
+                                    <!-- start -->
+                                    <!-- <form class="second-checkbox-group"> 
+                                        <div class="form-row checkbox-row">
+                                            
+                                            
+                                        
+                                        </div>
+                                    </form> -->
+                                    <!-- e -->
+                                
+                                    <div class="row text-center">
+                                        <div class="col text-center">  
+                                            <!-- <button onclick="myFunction()" class="btn btn-primary">Submit</button>   -->
+                                            <button class="btn btn-primary">Submit</button>
+                                        </div>    
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+
+                    
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12" id="intersections">
+                            
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <!-- <div class="row">
+                        <div class="col-lg-8 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                                </div>
+
+
+
+                                <div class="card-body">
+                                    <h4 class="small font-weight-bold">Server Migration <span
+                                            class="float-right">20%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Sales Tracking <span
+                                            class="float-right">40%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Customer Database <span
+                                            class="float-right">60%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar" role="progressbar" style="width: 60%"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Payout Details <span
+                                            class="float-right">80%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Account Setup <span
+                                            class="float-right">Complete!</span></h4>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+
+
+                                
+                            </div>
+                        </div>    
+                    </div> -->
+
+                    
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+   
+
+   
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/chart-bar-demo.js"></script>
+
+    <style>
+        .checkbox-row{
+            margin-bottom: 25px;
+        }
+
+        .indian{
+            color: #B635CA!important
+        }
+
+        .intersections {
+            display: none;
+        }
+        
+    </style>
+
+
+
+<script id="pi">
+
+</script>
+
+
+    <script>
+
+var ctx2;
+var myPieChart2;
+var child =
+`
+<div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary" id="intersections-title"></h6>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+        <div class="chart-pie pt-4">
+            <canvas id="myPieChart4"></canvas>
+        </div>
+    </div>
+</div>
+
+` 
+
+
+
+
+var json = []
+
+var final_intersection_result = [0,0]            
+
+            var id_per_category = {"race":[[0],[0],[0],[0]],
+                                "gender":[[0],[0]],
+                                "age":[[0],[0],[0],[0]]};
+                        
+
+            var intersection_results = [
+                            {"race":[]},
+                            {"gender":[]},
+                            {"age":[]}
+                        ];
+
+            // Here we store we store the unions of each group
+            // for example, we include the union of all the selected races.
+            var temp_union_arrays = { "race" : [0],
+                                "gender": [0],
+                                "age": [0]}
+
+            for(i = 0; i < json.length; i++)
+            {
+                var current_race = parseInt(json[i]["race"])
+                var current_gender = parseInt(json[i]["gender"])
+                var current_age = parseInt(json[i]["age"])
+
+                id_per_category["race"][current_race].push(json[i]['id'])
+                id_per_category["gender"][current_gender].push(json[i]['id'])
+                id_per_category["age"][current_age].push(json[i]['id'])
+                
+            }
+
+            var inter_params = {"first_inters":{"race":[], "gender":[], "age":[]},
+                                    "second_inters":{"race":[], "gender":[], "age":[]}}; 
+            var first_race = [];
+            var second_race = [];
+
+            
+            function union_arrays (x, y) {
+                var obj = {};
+                for (var i = x.length-1; i >= 0; -- i)
+                    obj[x[i]] = x[i];
+                for (var i = y.length-1; i >= 0; -- i)
+                    obj[y[i]] = y[i];
+                var res = []
+                for (var k in obj) {
+                    if (obj.hasOwnProperty(k))  // <-- optional
+                    res.push(obj[k]);
+                }
+                return res;
+            } 
+            
+
+            function intersection() {
+                var result = [0];
+                var lists;
+
+                if(arguments.length === 1) {
+                    lists = arguments[0];
+                } else {
+                    lists = arguments;
+                }
+
+                for(var i = 0; i < lists.length; i++) {
+                    var currentList = lists[i];
+                    for(var y = 0; y < currentList.length; y++) {
+                        var currentValue = currentList[y];
+                    if(result.indexOf(currentValue) === -1) {
+                        var existsInAll = true;
+                        for(var x = 0; x < lists.length; x++) {
+                        if(lists[x].indexOf(currentValue) === -1) {
+                            existsInAll = false;
+                            break;
+                        }
+                        }
+                        if(existsInAll) {
+                        result.push(currentValue);
+                        }
+                    }
+                    }
+                }
+                return result;
+            }
+
+
+
+           // id_per_category['race'][0].length, id_per_category['race'][1].length, id_per_category['race'][2].length, id_per_category['race'][3].length
+            
+// Pie Chart Example
+var ctx1 = document.getElementById("myPieChart1");
+var myPieChart = new Chart(ctx1, {
+  type: 'doughnut',
+  data: {
+    labels: ["White", "Black", "Asian", "Indian"],
+    datasets: [{
+      data: [id_per_category['race'][0].length, id_per_category['race'][1].length, id_per_category['race'][2].length, id_per_category['race'][3].length],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#B635CA'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#B635CA'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+
+
+var ctx1 = document.getElementById("myPieChart2");
+var myPieChart = new Chart(ctx1, {
+  type: 'doughnut',
+  data: {
+    labels: ["Male", "Female"],
+    datasets: [{
+      data: [id_per_category['gender'][0].length, id_per_category['race'][1].length],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#B635CA'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#B635CA'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+
+
+var ctx1 = document.getElementById("myPieChart3");
+var myPieChart = new Chart(ctx1, {
+  type: 'doughnut',
+  data: {
+    labels: ["0 - 18", "19 - 60", "60+"],
+    datasets: [{
+      data: [id_per_category['age'][0].length, id_per_category['age'][1].length, id_per_category['age'][2].length],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+
+
+
+            console.log(id_per_category);
+
+
+
+
+        $(document).ready(function () {
+
+            $("button").click(function () {
+                    
+                    $.each($("input[name='first_race']:checked"), function () {
+                        first_race.push($(this).val());
+                    });
+                    $.each($("input[name='second_race']:checked"), function () {
+                        second_race.push($(this).val());
+                    });
+                    
+                    console.log(first_race);
+                    console.log(second_race);
+
+                    for (i = 0; i < first_race.length; i++) {
+                        var temp = first_race[i].split("-");
+                        if (temp[1]== "none")
+                        {
+                            temp[1]=-1;
+                        }
+                        inter_params["first_inters"][temp[0]].push(parseInt(temp[1]));
+                    }
+
+                    for (i = 0; i < second_race.length; i++) {
+                        var temp = second_race[i].split("-");
+                        if (temp[1]== "none")
+                        {
+                            temp[1]=-1;
+                        }
+                        inter_params["second_inters"][temp[0]].push(parseInt(temp[1]))
+                    }
+
+                    console.log(inter_params);
+
+                    function get_unions(dict, category)
+                    {
+                        result = [];
+                        temp_list = dict[category]
+                        //console.log("TEmp_list", temp_list)
+                        for(var i = 0 ; i< temp_list.length; i++)
+                        {
+                            if(temp_list[i] == -1)
+                            {
+                                continue;
+                            } 
+                            else
+                            {
+                                result = union_arrays(result, id_per_category[category][ temp_list[i] ])
+                            }
+                            
+                        }
+                        return result;
+
+                    }
+
+                    temp_union_arrays["race"] =  get_unions(inter_params['first_inters'], 'race')
+                    temp_union_arrays["age"] =  get_unions(inter_params['first_inters'], 'age')
+                    temp_union_arrays["gender"] =  get_unions(inter_params['first_inters'], 'gender')
+                    console.log("TEMP01: ", temp_union_arrays)
+                    first_intersection = intersection(temp_union_arrays["race"], temp_union_arrays["age"], temp_union_arrays["gender"])
+                    final_intersection_result[0] =  (first_intersection != null) ? first_intersection.length : 0;
+
+                    console.log( "Result first_inters : \n" , first_intersection)
+
+
+                    temp_union_arrays["race"] =  get_unions(inter_params['second_inters'], 'race')
+                    temp_union_arrays["age"] =  get_unions(inter_params['second_inters'], 'age')
+                    temp_union_arrays["gender"] =  get_unions(inter_params['second_inters'], 'gender')
+                    console.log("TEMP02: ", temp_union_arrays)
+                    second_intersection = intersection(temp_union_arrays["race"], temp_union_arrays["age"], temp_union_arrays["gender"])
+
+                    final_intersection_result[1] =  (second_intersection != null) ? second_intersection.length : 0;
+
+                    
+                    console.log( "Result second_inters: \n" , second_intersection)
+
+                    console.log(final_intersection_result[0], final_intersection_result[1])
+
+                    document.getElementById("intersections").innerHTML = child;
+
+                    ctx2 = document.getElementById('myPieChart4');
+                    myPieChart2 = new Chart(ctx2, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['First Intersection', 'Second Intersection'],
+                        datasets: [{
+                        data: [final_intersection_result[0], final_intersection_result[1]],
+                        backgroundColor: ['#4e73df', '#1cc88a'],
+                        hoverBackgroundColor: ['#2e59d9', '#17a673'],
+                        hoverBorderColor: 'rgba(234, 236, 244, 1)',
+                        }],
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        tooltips: {
+                        backgroundColor: 'rgb(255,255,255)',
+                        bodyFontColor: '#858796',
+                        borderColor: '#dddfeb',
+                        borderWidth: 1,
+                        xPadding: 15,
+                        yPadding: 15,
+                        displayColors: false,
+                        caretPadding: 10,
+                        },
+                        legend: {
+                        display: false
+                        },
+                        cutoutPercentage: 80,
+                    },
+                    });
+
+
+
+                });
+
+
+
+        
+            $("button").dblclick(function () {
+                console.log("dblclick");
+                //document.getElementById("pi").innerHTML = child1;
+                //
+                $('#intersections').css('display', 'inline-block');
+                
+            });
+        });
+
+
+            
+        
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+<!-- 
+
+Taken from stack overflow:
+https://stackoverflow.com/questions/37320296/how-to-calculate-intersection-of-multiple-arrays-in-javascript-and-what-does-e
+
+function intersection() {
+  var result = [];
+  var lists;
+
+  if(arguments.length === 1) {
+    lists = arguments[0];
+  } else {
+    lists = arguments;
+  }
+
+  for(var i = 0; i < lists.length; i++) {
+    var currentList = lists[i];
+    for(var y = 0; y < currentList.length; y++) {
+        var currentValue = currentList[y];
+      if(result.indexOf(currentValue) === -1) {
+        var existsInAll = true;
+        for(var x = 0; x < lists.length; x++) {
+          if(lists[x].indexOf(currentValue) === -1) {
+            existsInAll = false;
+            break;
+          }
+        }
+        if(existsInAll) {
+          result.push(currentValue);
+        }
+      }
+    }
+  }
+  return result;
+}
+
+ -->
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+    https://stackoverflow.com/questions/3629817/getting-a-union-of-two-arrays-in-javascript
+
+function union_arrays (x, y) {
+    var obj = {};
+    for (var i = x.length-1; i >= 0; -- i)
+        obj[x[i]] = x[i];
+    for (var i = y.length-1; i >= 0; -- i)
+        obj[y[i]] = y[i];
+    var res = []
+    for (var k in obj) {
+        if (obj.hasOwnProperty(k))  // <-- optional
+        res.push(obj[k]);
+    }
+    return res;
+} 
+
+
+
+-->
