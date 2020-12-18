@@ -5,7 +5,7 @@ Chart.defaults.global.defaultFontColor = '#858796';
 
 
 
-var ctx2 = document.getElementById("myPieChart2");
+var ctx2 = document.getElementById("myPieChart6");
 var myPieChart = new Chart(ctx2, {
   type: 'doughnut',
   data: {
@@ -37,7 +37,7 @@ var myPieChart = new Chart(ctx2, {
 });
 
 
-var ctx3 = document.getElementById("myPieChart3");
+var ctx3 = document.getElementById("myPieChart7");
 var myPieChart = new Chart(ctx3, {
   type: 'doughnut',
   data: {
